@@ -273,6 +273,7 @@ const SILKS = {
   Pumpkin: { primary:'#7B2D8B', secondary:'#F97316' },
   Fred:    { primary:'#0D9488', secondary:'#EAB308' },
   Mandi:   { primary:'#C91E8C', secondary:'#000000' },
+  Aspen:   { primary:'#DAA520', secondary:'#3B1A08' },
 };
 
 /* ── REALISTIC HORSE COAT COLORS ───────────────────────────────── */
@@ -293,10 +294,12 @@ const COATS = {
   Fred:    { body:'#1E0E06', mane:'#0A0604', nose:'#3A2010', leg:'#140A04' },
   // Mandi   — bright chestnut (vivid copper-red, flaxen mane)
   Mandi:   { body:'#C4460A', mane:'#E8A060', nose:'#D86030', leg:'#C4460A' },
+  // Aspen   — bay (rich reddish-brown body, black mane/tail/legs, draft build)
+  Aspen:   { body:'#8B3A10', mane:'#1A0A04', nose:'#A05030', leg:'#1A0A04' },
 };
 
 /* ── HORSE ENTRIES — all jockey sets, one picked randomly each race ── */
-const HORSE_NAMES = ['Clacky','Rudy','Ben','Hank','Skipper','Pumpkin','Fred','Mandi'];
+const HORSE_NAMES = ['Clacky','Rudy','Ben','Hank','Skipper','Pumpkin','Fred','Mandi','Aspen'];
 
 /* ── JOCKEYS — Positive Strides Preakness Party Program ───────── */
 const ALL_JOCKEYS = [
@@ -323,7 +326,7 @@ function shuffle(arr) {
 
 // Fresh random jockeys (no repeats) and random PP order every race
 function buildEntries() {
-  const jockeyDraw = shuffle([...ALL_JOCKEYS]).slice(0, 8);
+  const jockeyDraw = shuffle([...ALL_JOCKEYS]).slice(0, 9);
   const order = shuffle([...HORSE_NAMES]);
   return order.map((horse, i) => ({ horse, pp: i + 1, jockey: jockeyDraw[i] }));
 }
